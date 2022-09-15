@@ -1,8 +1,6 @@
 import React from 'react'
 import './ItemDetail.css'
 import ItemCount from '../itemCount/ItemCount'
-
-
 const ItemDetail = ({ product }) => {
     return (
         <>
@@ -24,7 +22,6 @@ const ItemDetail = ({ product }) => {
                 <li>{product.desc[4]}</li>
                 <li>{product.desc[3]}</li>
             </ul>
-
         </>
     )
 }

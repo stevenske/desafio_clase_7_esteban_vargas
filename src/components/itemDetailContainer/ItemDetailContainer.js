@@ -6,11 +6,9 @@ const ItemDetailContainer = () => {
     const [product, setProduct] = useState()
     const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        
+    useEffect(() => {        
         GetFetch
             .then((resp) => setProduct(resp.find(el => el.id == 1)))
-            .then(console.log(product))
             .finally(() => setLoading(false))
     }, [])
 
