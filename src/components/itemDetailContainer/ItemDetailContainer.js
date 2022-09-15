@@ -1,15 +1,16 @@
 import GetFetch from '../data/Data'
 import { useEffect, useState } from 'react'
-import ItemListDetail from '../itemListDetail/ItemListDetail'
+import ItemDetail from '../itemDetail/ItemDetail'
 
 const ItemDetailContainer = () => {
-    const [data, setData] = useState([])
+    const [product, setProduct] = useState()
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        
         GetFetch
-            .then((resp) => setData(resp.filter(el => el.id == 1)))
-            .catch((error => console.log(error)))
+            .then((resp) => setProduct(resp.find(el => el.id == 1)))
+            .then(console.log(product))
             .finally(() => setLoading(false))
     }, [])
 
@@ -18,7 +19,7 @@ const ItemDetailContainer = () => {
         <div id='ItemDetail-container' className='row itemContainer gap-3'>
             {
                 loading ? <span>Cargando...</span> :
-                    <ItemListDetail products={data} />
+                    <ItemDetail product={product} />
             }
         </div>
     </>
